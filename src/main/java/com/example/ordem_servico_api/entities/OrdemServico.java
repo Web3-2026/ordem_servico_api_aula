@@ -40,7 +40,7 @@ public class OrdemServico {
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
-    @OneToMany
+    @OneToMany(mappedBy = "ordemServico")
     private List<Comentario> comentarios;
 
     @CreationTimestamp

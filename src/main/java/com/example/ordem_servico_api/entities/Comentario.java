@@ -9,6 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +27,10 @@ public class Comentario {
     private Long id;
 
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "ordem_servico_id")
+    OrdemServico ordemServico;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

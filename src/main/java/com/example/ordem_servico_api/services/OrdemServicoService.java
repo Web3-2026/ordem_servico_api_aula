@@ -30,6 +30,8 @@ public class OrdemServicoService {
 
     public OrdemServico save(OrdemServico ordemServico) {
 
+        ordemServico.setStatus("ABERTA");
+
         return ordemServicoRepository.save(ordemServico);
 
     }
