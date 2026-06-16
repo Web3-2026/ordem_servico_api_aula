@@ -35,6 +35,14 @@ public class ClienteResources {
 
     }
 
+    //implementar um getById()
+    @GetMapping("/{id}")
+    public Cliente getById(@PathVariable Long id){
+
+        return clienteService.findById(id);
+
+    }
+
     @PostMapping
     public ResponseEntity<Cliente> save(@Validated @RequestBody Cliente cliente){
 

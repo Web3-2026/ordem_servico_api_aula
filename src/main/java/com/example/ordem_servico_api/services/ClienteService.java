@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.ordem_servico_api.entities.Cliente;
+import com.example.ordem_servico_api.exceptions.ResourceNotFoundException;
 import com.example.ordem_servico_api.repositories.ClienteRepository;
 
 @Service
@@ -17,6 +18,12 @@ public class ClienteService {
     public List<Cliente> findAll(){
         List<Cliente> clientes = clienteRepository.findAll();
         return clientes;
+    }
+
+    public Cliente findById(Long id) {
+        
+        return clienteRepository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Cliente", id));
+
     }
 
     public Cliente save(Cliente cliente){
